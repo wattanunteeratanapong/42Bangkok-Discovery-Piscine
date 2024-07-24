@@ -1,0 +1,437 @@
+:root {
+    --themecolor: #161a26;
+    --padlet1: #1a1f2d;
+    --padlet2: #078fc4;
+    --padlet3: #ffc815;
+    --padlet4: #ffffff;
+    --padlet5: #0058a3;
+    --scalevalue: 1.3;
+}
+
+body {
+    font-family: "Orbitron", sans-serif;
+    margin: 0;
+}
+
+/* Navigation Bar */
+.flexnavbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 4vh;
+    position: fixed;
+}
+.flexwelcomebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--padlet4);
+    background-color: var(--padlet2);
+    text-decoration: none;
+    width: 100%;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+.flexwelcomebar:hover {
+    background-color: var(--padlet5);
+    box-shadow: 0 0 10px 1px black;
+}
+
+/* Moving Background */
+.flexscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("https://ea0e60f528.cbaul-cdnwnd.com/950d34882821b0be57d9fbfb56b167ae/200000000-7fd7980d8e/Large%20Space%20Background.png?ph=ea0e60f528") repeat-y; 
+    color: var(--padlet4);
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-size: 100% 200%; 
+    animation: slide 20s linear infinite;
+}
+@keyframes slide {
+    0% { 
+        background-position: 0 0; 
+    }
+    100% { 
+        background-position: 0 -200%; 
+    }
+}
+
+/* Display Box */
+.flexdisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--padlet1);
+    width: 90vw;
+    height: 85vh;
+    margin-top: 5vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 3px black;
+}
+
+/* Profile Picture */
+@keyframes colorchange {
+    0%   {border-color: red;}
+    25%  {border-color: var(--padlet2);}
+    50%  {border-color: var(--padlet3);}
+    100% {border-color: red;}
+}
+.seriouscat {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 5px solid var(--padlet1);
+    transition-property: transform;
+    transition-duration: 0.5s;
+    animation-name: colorchange;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+.seriouscat:hover {
+    transform: scale(1.3);
+}
+
+/* Name */
+.name {
+    font-size: 20px;
+    text-align: center;
+    color: var(--padlet4);
+}
+
+/* Quote */
+.quote {
+    font-size: 1em;
+    color: var(--padlet4);
+}
+
+/* Flex Info */
+.flexinfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: 65%;
+}
+.flexinfo1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 10% 0;
+    border: 1px solid red;
+}
+.flexinfo2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    margin: 10% 0;
+    border: 1px solid red;
+}
+.verticalline {
+    border-left: 6px solid white;
+    height: 100%;
+    width: 0%;
+}
+
+/* Grid Personal Info Box */
+.infocontent {
+    display: grid;
+    grid-template-areas: 
+        "name inputname"
+        "age inputage"
+        "gender inputgender"
+        "education inputeducation"
+        "major inputmajor"
+        "branch inputbranch"
+        "hobby inputhobby";
+    grid-template-columns: 1fr 3fr;
+    justify-items: start;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+/* Name */
+.nametitle {
+    grid-area: name;
+    color: var(--padlet2);
+    font-size: 1.5em;
+}
+.inputname {
+    grid-area: inputname;
+    color: var(--padlet4);
+    font-size: 1.5em;
+}
+/* Age */
+.agetitle {
+    grid-area: age;
+    color: var(--padlet2);
+    font-size: 1.5em;
+}
+.inputage {
+    grid-area: inputage;
+    color: var(--padlet4);
+    font-size: 1.5em;
+}
+/* Gender */
+.gendertitle {
+    grid-area: gender;
+    color: var(--padlet2);
+    font-size: 1.5em;
+}
+.inputgender {
+    grid-area: inputgender;
+    color: var(--padlet4);
+    font-size: 1.5em;
+}
+/* Education */
+.educationtitle {
+    grid-area: education;
+    color: var(--padlet2);
+    font-size: 1.5em;
+}
+.inputeducation {
+    grid-area: inputeducation;
+    color: var(--padlet4);
+    font-size: 1.5em;
+}
+/* Major */
+.majortitle {
+    grid-area: major;
+    color: var(--padlet2);
+    font-size: 1.5em;
+}
+.inputmajor {
+    grid-area: inputmajor;
+    color: var(--padlet4);
+    font-size: 1.5em;
+}
+/* Branch */
+.branchtitle {
+    grid-area: branch;
+    color: var(--padlet2);
+    font-size: 1.5em;
+}
+.inputbranch {
+    grid-area: inputbranch;
+    color: var(--padlet4);
+    font-size: 1.5em;
+}
+/* Hobby */
+.hobbytitle {
+    grid-area: hobby;
+    color: var(--padlet2);
+    font-size: 1.5em;
+}
+.inputhobby {
+    grid-area: inputhobby;
+    color: var(--padlet4);
+    font-size: 1.5em;
+}
+
+/* Grid Skill Bar Box */
+.skillcontent {
+    display: grid;
+    grid-template-areas: 
+        "c cscale"
+        "python pythonscale"
+        "git gitscale"
+        "html htmlscale"
+        "css cssscale"
+        "js jsscale"
+        "figma figmascale";
+    grid-template-columns: 1fr 2fr;
+    justify-items: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+/* Skill Logos */
+.clogo {
+    grid-area: c;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.5s;
+}
+.pythonlogo {
+    grid-area: python;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.5s;
+}
+.gitlogo {
+    grid-area: git;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.5s;
+}
+.htmllogo {
+    grid-area: html;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.5s;
+}
+.csslogo {
+    grid-area: css;
+    width: 38px;
+    height: 50px;
+    transition: transform 0.5s;
+}
+.jslogo {
+    grid-area: js;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.5s;
+}
+.figmalogo {
+    grid-area: figma;
+    width: 50px;
+    height: 65px;
+    transition: transform 0.5s;
+}
+
+/* Skill Scales */
+.cscale {
+    grid-area: cscale;
+    background-color: var(--padlet4);
+    width: 105%;
+    height: 20%;
+    margin-right: 20%;
+    box-shadow: 0 0 7px 3px black;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+.cpercentscale {
+    background-color: #649ad2;
+    border-radius: 10px;
+    width: 90%;
+    height: 100%;
+    margin-right: 20%;
+}
+
+.pythonscale {
+    grid-area: pythonscale;
+    background-color: var(--padlet4);
+    width: 105%;
+    height: 20%;
+    margin-right: 20%;
+    box-shadow: 0 0 7px 3px black;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+.pythonpercentscale {
+    background-color: #ffda47;
+    border-radius: 10px;
+    width: 70%;
+    height: 100%;
+}
+
+.gitscale {
+    grid-area: gitscale;
+    background-color: var(--padlet4);
+    width: 105%;
+    height: 20%;
+    margin-right: 20%;
+    box-shadow: 0 0 7px 3px black;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+.gitpercentscale {
+    background-color: #f05030;
+    border-radius: 10px;
+    width: 10%;
+    height: 100%;
+}
+
+.htmlscale {
+    grid-area: htmlscale;
+    background-color: var(--padlet4);
+    width: 105%;
+    height: 20%;
+    margin-right: 20%;
+    box-shadow: 0 0 7px 3px black;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+.htmlpercentscale {
+    background-color: #e54c21;
+    border-radius: 10px;
+    width: 30%;
+    height: 100%;
+}
+
+.cssscale {
+    grid-area: cssscale;
+    background-color: var(--padlet4);
+    width: 105%;
+    height: 20%;
+    margin-right: 20%;
+    box-shadow: 0 0 7px 3px black;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+.csspercentscale {
+    background-color: #2465f1;
+    border-radius: 10px;
+    width: 30%;
+    height: 100%;
+}
+
+.jsscale {
+    grid-area: jsscale;
+    background-color: var(--padlet4);
+    width: 105%;
+    height: 20%;
+    margin-right: 20%;
+    box-shadow: 0 0 7px 3px black;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+.jspercentscale {
+    background-color: var(--padlet3);
+    border-radius: 10px;
+    width: 70%;
+    height: 100%;
+}
+
+.figmascale {
+    grid-area: figmascale;
+    background-color: var(--padlet4);
+    width: 105%;
+    height: 15%;
+    margin-right: 20%;
+    box-shadow: 0 0 7px 3px black;
+    border-radius: 30px;
+    transition: transform 0.5s;
+}
+.figmapercentscale {
+    background-color: var(--padlet2);
+    border-radius: 10px;
+    width: 60%;
+    height: 100%;
+}
+
+/* Hover Effect */
+.clogo:hover, .pythonlogo:hover, .gitlogo:hover, .htmllogo:hover, .csslogo:hover, .jslogo:hover, .figmalogo:hover {
+    transform: scale(var(--scalevalue));
+}
+
+.cscale:hover, .pythonscale:hover, .gitscale:hover, .htmlscale:hover, .cssscale:hover, .jsscale:hover, .figmascale:hover {
+    transform: scale(1.05);
+}
+
