@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <form id="calculatorForm">
+        <input type="text" id="leftValue" placeholder="Left value" required>
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="rightValue" placeholder="Right value" required>
+        <input type="submit" value="Try me!">
+    </form>
+
+    <script>
+
+        $('#calculatorForm').on('submit', function(event) {
+            event.preventDefault();
+
+            const leftValueStr = $('#leftValue').val();
+            const rightValueStr = $('#rightValue').val();
+            const operator = $('#operator').val();
+
+            const leftValue = Number(leftValueStr);
+            const rightValue = Number(rightValueStr);
+
+            // Check if inputs contain valid numbers
+            if (checkNumber(leftValueStr) || checkNumber(rightValueStr)) {
+                alert('Error :(');
+                console.log('Error :(');
+                return;
+            }
+
+            function checkNumber(input) {
+                for (char of input.toString()) {
+                    if ((char < '0' || char > '9') && char !== " ") return true;
+                }
+                return false;
+            }
+            
+            let result;
+            switch (operator) {
+                case '+':
+                    result = leftValue + rightValue;
+                    break;
+                case '-':
+                    result = leftValue - rightValue;
+                    break;
+                case '*':
+                    result = leftValue * rightValue;
+                    break;
+                case '/':
+                    if (rightValue === 0) {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                        return;
+                    }
+                    result = leftValue / rightValue;
+                    break;
+                case '%':
+                    if (rightValue === 0) {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                        return;
+                    }
+                    result = leftValue % rightValue;
+                    break;
+                default:
+                    alert('Error :(');
+                    console.log('Error :(');
+                    return;
+            }
+
+            alert(result);
+            console.log(result);
+        });
+
+        setInterval(function() {
+            alert('Please, use me...');
+        }, 30000);
+        
+    </script>
+
+</body>
+</html>

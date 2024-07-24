@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+<body>
+
+    <!-- Form Tag -->
+    <form id="calculatorForm">
+        <!-- Left Box -->
+        <input type="text" id="leftValue" placeholder="Left value" required>
+        <!-- Operator Box -->
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <!-- Right Box -->
+        <input type="text" id="rightValue" placeholder="Right value" required>
+        <!-- Submit Button -->
+        <input type="submit" value="Try me!">
+    </form>
+
+    <script>
+
+        // Get the form from HTML
+        const form = document.getElementById('calculatorForm');
+        form.onsubmit = function(event) {
+            // Prevent info delete when submit form
+            event.preventDefault();
+
+            const leftValueStr = document.getElementById('leftValue').value;
+            const rightValueStr = document.getElementById('rightValue').value;
+            const operator = document.getElementById('operator').value;
+
+            const leftValue = Number(leftValueStr);
+            const rightValue = Number(rightValueStr);
+
+            if (checkNumber(leftValueStr) || checkNumber(rightValueStr)) {
+                alert('Error :(');
+                return;
+            }
+            
+            function checkNumber(input) {
+                for (char of input.toString()) {
+                    if ((char < '0' || char > '9') && char !== " ") return true;
+                }
+                return false;
+            }
+
+            let result;
+            switch (operator) {
+                case '+':
+                    result = leftValue + rightValue;
+                    break;
+                case '-':
+                    result = leftValue - rightValue;
+                    break;
+                case '*':
+                    result = leftValue * rightValue;
+                    break;
+                case '/':
+                    if (rightValue === 0) {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                        return;
+                    }
+                    result = leftValue / rightValue;
+                    break;
+                case '%':
+                    if (rightValue === 0) {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                        return;
+                    }
+                    result = leftValue % rightValue;
+                    break;
+                default:
+                    alert('Error :(');
+                    console.log('Error :(');
+                    return;
+            }
+
+            alert(result);
+            console.log(result);
+        };
+
+        setInterval(function() {
+            alert('Please, use me...');
+        }, 30000);
+
+    </script>
+
+</body>
+</html>
